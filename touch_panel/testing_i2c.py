@@ -1,7 +1,8 @@
 # I2C library
-import smbus2
+import smbus3
 from gpiozero import Device, DigitalOutputDevice, InputDevice
 import time
+# from digitizer_driver import switch_address
 
 FIRMWARE_REG = 0x8144
 TOUCH_NUMBER_REG = 0x804c
@@ -21,33 +22,47 @@ ENTER_RECEIVE_MODE = 0x22
 # 8bit write address 0xBA
 # 8bit read address  0xBB
 # ADDR = 0x5d
-ADDR = 0x5d
+ADDR = 0x14
 
 # Initialize I2C (SMBus)
-i2c = smbus2.SMBus(1)
+i2c = smbus3.SMBus(1)
+
+
+
 
 int_pin = 18
 rst_pin = 26
 
-rst_dev = DigitalOutputDevice(pin=rst_pin, initial_value=True)
+rst_l_dev = DigitalOutputDevice(pin=rst_pin, initial_value=True)
+    # "off" causes the chip to get reset
 int_dev = DigitalOutputDevice(pin=int_pin, initial_value=True)
 
+# make sure the device is on
+rst_l_dev.on()
+time.sleep(0.001)
 
-# See if we can make any changes at fucking all
-rst_dev.off()
-time.sleep(1)
+# switch_address(0)
 
-CSR_second = i2c.read_byte_data(ADDR, 0x814e)
+# while(1):
+#     time.sleep(1)
 
-print(CSR_second)
+# CSR_second = i2c.read_byte_data(ADDR, 0x814e)
+
+# print(CSR_second)
 
 # touchnum = i2c.read_byte_data(ADDR, TOUCH_NUMBER_REG)
 # print(touchnum)
 
-# firm_low = i2c.read_byte_data(ADDR, FIRMWARE_REG)
+i2c.write_byte_data(ADDR, 0x81, 0x44)
+
+
+firm_low = i2c.i2c_rd(ADDR, 1, 1)
+
+# firm_low = i2c.read_byte(ADDR)
+# firm_high = i2c.read_byte_data(ADDR, 0)
 # firm_high = i2c.read_byte_data(ADDR, FIRMWARE_REG + 1)
 
-# print(firm_low)
+print(firm_low)
 # print(firm_high)
 
 # Try changing the address of the doodad
