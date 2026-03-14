@@ -2,6 +2,7 @@
 import smbus3
 from gpiozero import Device, DigitalOutputDevice, InputDevice
 import time
+import os
 
 #Secondary GT911 I2C address
 # ADDR = 0x14
@@ -39,8 +40,9 @@ READ_X_RES_2B_REG = smbus3.i2c_msg.write(ADDR, [0x81, 0x46])
 READ_Y_RES_2B_REG = smbus3.i2c_msg.write(ADDR, [0x81, 0x48])
 REFRESH_RATE_1B_REG = smbus3.i2c_msg.write(ADDR, [0x80, 0x56])
 
-X_PT1_REG = smbus3.i2c_msg.write(ADDR, [0x81, 0x58])
-Y_PT1_REG = smbus3.i2c_msg.write(ADDR, [0x81, 0x5A])
+# X_PT1_REG = smbus3.i2c_msg.write(ADDR, [0x81, 0x58])
+# Y_PT1_REG = smbus3.i2c_msg.write(ADDR, [0x81, 0x5A])
+TOUCH_XY_REG = smbus3.i2c_msg.write(ADDR, [0x81, 0x4F])
 
 BUFF_1_BYTE = smbus3.i2c_msg.read(ADDR, 1) 
 BUFF_2_BYTE = smbus3.i2c_msg.read(ADDR, 2) 
@@ -83,6 +85,7 @@ print("Config refresh rate: " + str(BUFF_1_BYTE.__bytes__()))
 
 while(1):
     
+    
     i2c.i2c_rdwr(STATUS_1B_REG, BUFF_1_BYTE)
     # print("Status register: " + str(BUFF_1_BYTE.__bytes__()))
     # print(BUFF_1_BYTE.__bytes__())
@@ -91,25 +94,46 @@ while(1):
     ready_to_read = status_response >> 7
     num_touch = status_response & 0b00000111
 
-    if (ready_to_read == 1):
-        print("Ready response recieved. " + str(num_touch) + " touches detected. Clearing status register")
-        i2c.i2c_rdwr(CLEAR_STATUS_REG)
+    # print(ready_to_read)
+
+    if ((ready_to_read == 1) & (num_touch != 0)):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Number of touches recieved: " + str(num_touch))
+        # Determing number of points to read
+        # Read the X&Y coords for the appropriate amount of registers
+        # Clear status reg
+
+
+        BUFF_TOUCH = smbus3.i2c_msg.read(ADDR, 8*num_touch)
+        i2c.i2c_rdwr(TOUCH_XY_REG, BUFF_TOUCH)
+
+        track_ids = []
+        x_coords = []
+        y_coords = []
+        sizes = []
+
+        for i in range(0, num_touch):
+            # print(type(BUFF_TOUCH.__bytes__()[0 + 8*i]))
+            track_ids.append(BUFF_TOUCH.__bytes__()[0 + 8*i])
+            x_coords.append(int.from_bytes([BUFF_TOUCH.__bytes__()[2 + 8*i], BUFF_TOUCH.__bytes__()[1 + 8*i]]))
+            y_coords.append(int.from_bytes([BUFF_TOUCH.__bytes__()[4 + 8*i], BUFF_TOUCH.__bytes__()[3 + 8*i]]))
+            sizes.append(int.from_bytes([BUFF_TOUCH.__bytes__()[6 + 8*i], BUFF_TOUCH.__bytes__()[5 + 8*i]]))
+
+            print("Touch " + str(track_ids[i]) + ": (" + str(x_coords[i]) + ", " + str(y_coords[i]) + ") Size: " + str(sizes[i]))
+
+    # print("Ready response recieved. " + str(num_touch) + " touches detected. Clearing status register")
+    i2c.i2c_rdwr(CLEAR_STATUS_REG)
 
         # Check if clearing the status register worked properly
-        i2c.i2c_rdwr(STATUS_1B_REG, BUFF_1_BYTE)
-        status_response = int.from_bytes(BUFF_1_BYTE.__bytes__())
-        ready_to_read = status_response >> 7
+        # i2c.i2c_rdwr(STATUS_1B_REG, BUFF_1_BYTE)
+        # status_response = int.from_bytes(BUFF_1_BYTE.__bytes__())
+        # ready_to_read = status_response >> 7
 
-        if (ready_to_read == 1):
-            print("CLEAR UNSUCCESSFUL")
-        else:
-            print("Clear successful")
+        # if (ready_to_read == 1):
+        #     print("CLEAR UNSUCCESSFUL")
+        # else:
+            # print("Clear successful")
 
-    # if ()
-    # for value in BUFF_1_BYTE:
-    #     if (value == 128):
-    #         i2c.i2c_rdwr(X_PT1_REG, BUFF_2_BYTE)
-    #         for val in BUFF_2_BYTE:
-    #             print(val)
 
-    time.sleep(0.001)
+
+    time.sleep(0.005)
