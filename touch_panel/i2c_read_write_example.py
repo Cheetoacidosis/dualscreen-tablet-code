@@ -36,3 +36,10 @@ i2c.i2c_rdwr(FIRMWARE_REG, READ_TWO_BYTE)
 # Iterate through and print out the recieved values
 for val in READ_TWO_BYTE:
     print(val)
+8
+''' 
+At this point, you should see the following in the terminal:
+
+96
+16
+'''
