@@ -3,6 +3,46 @@ import smbus3
 from gpiozero import Device, DigitalOutputDevice, InputDevice, Button
 import time
 import os
+from functools import partial 
+import gt911_panel
+
+# def ValidatePoweron():
+
+
+def ReadTouches(ADDR):
+    # Read the status register, and break the byte into its component bits
+    i2c.i2c_rdwr(STATUS_1B_REG, BUFF_1_BYTE)
+    status_response = int.from_bytes(BUFF_1_BYTE.__bytes__())
+    ready_to_read = (status_response >> 7) & 0b1
+    num_touch = status_response & 0b00000111
+    large_touch = (status_response >> 6) & 0b1
+
+    # Read the coordinate registers 
+    if ((ready_to_read == 1) & (num_touch != 0)):
+        print("Number of touches detected: " + str(num_touch) + (", Large area detected" if large_touch == 1 else ""))
+
+        BUFF_TOUCH = smbus3.i2c_msg.read(ADDR, 8*num_touch)
+        i2c.i2c_rdwr(TOUCH_XY_REG, BUFF_TOUCH)
+
+        track_ids = []
+        x_coords = []
+        y_coords = []
+        sizes = []
+
+        # Store the coordinates
+        for i in range(0, num_touch):
+            track_ids.append(BUFF_TOUCH.__bytes__()[0 + 8*i])
+            x_coords.append(int.from_bytes([BUFF_TOUCH.__bytes__()[2 + 8*i], BUFF_TOUCH.__bytes__()[1 + 8*i]]))
+            y_coords.append(int.from_bytes([BUFF_TOUCH.__bytes__()[4 + 8*i], BUFF_TOUCH.__bytes__()[3 + 8*i]]))
+            sizes.append(int.from_bytes([BUFF_TOUCH.__bytes__()[6 + 8*i], BUFF_TOUCH.__bytes__()[5 + 8*i]]))
+
+            print("Touch " + str(track_ids[i]) + ": (" + str(x_coords[i]) + ", " + str(y_coords[i]) + ") Size: " + str(sizes[i]))
+
+    # CRITICAL! Clear the status register as an ACK
+    i2c.i2c_rdwr(CLEAR_STATUS_REG)
+
+    time.sleep(0.005)
+
 
 # GT911 I2C address
 ADDR = 0x14
@@ -20,7 +60,6 @@ rst_pin = 26
 
 # Create digital output devices for the touch panel
 rst_l_dev = DigitalOutputDevice(pin=rst_pin, initial_value=False)
-    # "off" causes the chip to get reset
 int_dev = DigitalOutputDevice(pin=int_pin, initial_value=False)
 
 # Turn the device on, and set I2C address
@@ -65,37 +104,10 @@ while(1):
 
     # Wait for the interrupt (INT) pin to go high
         # THIS DOES NOT ACTUALLY SET UP AN INTERRUPT! The underlying hardware is just polling. There is no way to set up an interrupt in userspace
-    int_dev.wait_for_press()
+    gay = partial(ReadTouches, 0x14)
+    int_dev.when_pressed = gay
     
-    # Read the status register, and break the byte into its component bits
-    i2c.i2c_rdwr(STATUS_1B_REG, BUFF_1_BYTE)
-    status_response = int.from_bytes(BUFF_1_BYTE.__bytes__())
-    ready_to_read = (status_response >> 7) & 0b1
-    num_touch = status_response & 0b00000111
-    large_touch = (status_response >> 6) & 0b1
+    print("woag")
 
-    # Read the coordinate registers 
-    if ((ready_to_read == 1) & (num_touch != 0)):
-        print("Number of touches detected: " + str(num_touch) + (", Large area detected" if large_touch == 1 else ""))
-
-        BUFF_TOUCH = smbus3.i2c_msg.read(ADDR, 8*num_touch)
-        i2c.i2c_rdwr(TOUCH_XY_REG, BUFF_TOUCH)
-
-        track_ids = []
-        x_coords = []
-        y_coords = []
-        sizes = []
-
-        # Store the coordinates
-        for i in range(0, num_touch):
-            track_ids.append(BUFF_TOUCH.__bytes__()[0 + 8*i])
-            x_coords.append(int.from_bytes([BUFF_TOUCH.__bytes__()[2 + 8*i], BUFF_TOUCH.__bytes__()[1 + 8*i]]))
-            y_coords.append(int.from_bytes([BUFF_TOUCH.__bytes__()[4 + 8*i], BUFF_TOUCH.__bytes__()[3 + 8*i]]))
-            sizes.append(int.from_bytes([BUFF_TOUCH.__bytes__()[6 + 8*i], BUFF_TOUCH.__bytes__()[5 + 8*i]]))
-
-            print("Touch " + str(track_ids[i]) + ": (" + str(x_coords[i]) + ", " + str(y_coords[i]) + ") Size: " + str(sizes[i]))
-
-    # CRITICAL! Clear the status register as an ACK
-    i2c.i2c_rdwr(CLEAR_STATUS_REG)
-
-    time.sleep(0.005)
+    while(1):
+        time.sleep(0.0001)
