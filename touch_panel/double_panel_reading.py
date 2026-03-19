@@ -104,8 +104,8 @@ while(1):
 
     # Wait for the interrupt (INT) pin to go high
         # THIS DOES NOT ACTUALLY SET UP AN INTERRUPT! The underlying hardware is just polling. There is no way to set up an interrupt in userspace
-    gay = partial(ReadTouches, 0x14)
-    int_dev.when_pressed = gay
+    panel1_interrupt = partial(ReadTouches, 0x14)
+    int_dev.when_pressed = panel1_interrupt
     
     print("woag")
 
