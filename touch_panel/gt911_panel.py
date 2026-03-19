@@ -145,6 +145,10 @@ class GT911_Panel:
 
 
     def start_reading(self):
+        """
+        Essentially sets up an interrupt on INT. In practice it is still polling, 
+        but to this level it looks like an interrupt
+        """
         self.int_dev.when_pressed = self.__read_coord_registers
 
     
