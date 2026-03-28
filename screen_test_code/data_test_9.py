@@ -29,8 +29,7 @@ rst_dev = DigitalOutputDevice(pin=rst_pin, initial_value=True)
 #Screen refresh
 
 
-#Reset device (only necessary after power cycle)
-#Waiting 0.3 is a bit excessive - 0.2 works, but 0.1 does not
+
 rst_dev.off()
 time.sleep(0.3)
 rst_dev.on()
@@ -49,7 +48,7 @@ cs_dev.on()
 cd_dev.off()
 spi.writebytes([0x01]) #set power settings
 cd_dev.on()
-spi.writebytes([0x0F, 0x07, 0x17, 0x3A, 0x3A, 0x03]) #default settings
+spi.writebytes([0x0F, 0x07, 0x17, 0x3A, 0x3A, 0x03]) #default settings, but with B/W flipped
 cs_dev.off()
 
 #Set screen resolution 800 x 480
@@ -77,7 +76,7 @@ cd_dev.off()
 spi.writebytes([0x10]) #write old cmd
 cd_dev.on()
 for _ in range(12):  
-    spi.writebytes([0xFF]*4000)
+    spi.writebytes([0x01]*4000)
 cs_dev.off()
 
 #Wait for busy
@@ -90,8 +89,9 @@ cs_dev.on()
 cd_dev.off()
 spi.writebytes([0x13]) #write new cmd
 cd_dev.on()
-for _ in range(480):  
-    spi.writebytes([0xFF]*100)
+spi.writebytes([0xFF]*4000)
+for _ in range(11):  
+    spi.writebytes([0x00]*4000)
 cs_dev.off()
 
 #Wait for busy

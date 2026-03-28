@@ -28,9 +28,6 @@ rst_dev = DigitalOutputDevice(pin=rst_pin, initial_value=True)
 #Wait for busy
 #Screen refresh
 
-
-#Reset device (only necessary after power cycle)
-#Waiting 0.3 is a bit excessive - 0.2 works, but 0.1 does not
 rst_dev.off()
 time.sleep(0.3)
 rst_dev.on()
@@ -50,6 +47,62 @@ cd_dev.off()
 spi.writebytes([0x01]) #set power settings
 cd_dev.on()
 spi.writebytes([0x0F, 0x07, 0x17, 0x3A, 0x3A, 0x03]) #default settings
+cs_dev.off()
+
+#power off sequence setting
+cs_dev.on()
+cd_dev.off()
+spi.writebytes([0x03])
+cd_dev.on()
+spi.writebytes([0x00]) #default
+cs_dev.off()
+
+#booster soft start
+cs_dev.on()
+cd_dev.off()
+spi.writebytes([0x06])
+cd_dev.on()
+spi.writebytes([0x17, 0x17, 0x17, 0x17]) #default
+cs_dev.off()
+
+#pll control
+cs_dev.on()
+cd_dev.off()
+spi.writebytes([0x30])
+cd_dev.on()
+spi.writebytes([0x06]) #default
+cs_dev.off()
+
+#vcom setting
+cs_dev.on()
+cd_dev.off()
+spi.writebytes([0x50])
+cd_dev.on()
+spi.writebytes([0x07]) #default
+cs_dev.off()
+
+#tcon setting
+cs_dev.on()
+cd_dev.off()
+spi.writebytes([0x60])
+cd_dev.on()
+spi.writebytes([0x22]) #default
+cs_dev.off()
+
+#vcom_dc setting
+cs_dev.on()
+cd_dev.off()
+spi.writebytes([0x82])
+cd_dev.on()
+spi.writebytes([0x00]) #default
+cs_dev.off()
+
+#power saving settings
+cs_dev.on()
+cd_dev.off()
+spi.writebytes([0xE3])
+cd_dev.on()
+spi.writebytes([0x00]) #default
 cs_dev.off()
 
 #Set screen resolution 800 x 480
@@ -90,8 +143,8 @@ cs_dev.on()
 cd_dev.off()
 spi.writebytes([0x13]) #write new cmd
 cd_dev.on()
-for _ in range(480):  
-    spi.writebytes([0xFF]*100)
+for _ in range(12):  
+    spi.writebytes([0x00]*4000)
 cs_dev.off()
 
 #Wait for busy

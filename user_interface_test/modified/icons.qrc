@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/arrow_left.svg</file>
+        <file>icons/arrow_right.svg</file>
+        <file>icons/asterisk.svg</file>
+        <file>icons/brush1.svg</file>
+        <file>icons/brush2.svg</file>
+        <file>icons/brush3.svg</file>
+        <file>icons/BT_RX.svg</file>
+        <file>icons/BT_TX.svg</file>
+        <file>icons/folder.svg</file>
+        <file>icons/none.svg</file>
+        <file>icons/redo.svg</file>
+        <file>icons/undo.svg</file>
+        <file>icons/file.svg</file>
+        <file>icons/save_as.svg</file>
+        <file>icons/save.svg</file>
+        <file>icons/settings.svg</file>
+        <file>icons/new_file.svg</file>
+    </qresource>
+</RCC>
