@@ -11,7 +11,7 @@ import evdev
 import time
 
 # Connect to the first panel
-panel1 = GT911_Panel(i2c_address = 0x14, int_pin = 18, rst_pin = 26)
+panel1 = GT911_Panel(i2c_address = 0x5d, int_pin = 23, rst_pin = 24)
 if not panel1.connect():
     print("Failed connection P1")
     input("Press enter to continue")
@@ -49,5 +49,14 @@ while (True):
             ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
             ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, 45) # Can be anything, as long as each touch is unique
             ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x1[0])
+    # Read data
+    # If fresh
+        # if empty
+            # set ID negavite
+        # if new touch down
+            # set "unique" ID (really just whatever the slot is)
+            # update evdev with the position
+        # else
+            # update evdev with the positionN_X, x1[0])
             ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y1[0])
             ui.syn()
