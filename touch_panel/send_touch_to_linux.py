@@ -11,7 +11,7 @@ import evdev
 import time
 
 # Connect to the first panel
-panel1 = GT911_Panel(i2c_address = 0x5d, int_pin = 23, rst_pin = 24)
+panel1 = GT911_Panel(i2c_address = 0x5d, int_pin = 18, rst_pin = 26)
 if not panel1.connect():
     print("Failed connection P1")
     input("Press enter to continue")
