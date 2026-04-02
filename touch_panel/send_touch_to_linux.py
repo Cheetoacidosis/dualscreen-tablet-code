@@ -17,16 +17,20 @@ if not panel1.connect():
     input("Press enter to continue")
 panel1.start_reading()
 
+TOUCH_RESOLUTION = (1024, 600)
+SQUARE = 1024
+
+squareAbsInfo = AbsInfo(value=0, min=0, max=SQUARE, fuzz=0, flat=0, resolution=31)
 
 # Set up the touch emulation device
 cap = {
     e.EV_KEY : [e.KEY_A, e.KEY_B, e.BTN_LEFT, e.BTN_MOUSE, e.BTN_MIDDLE, e.BTN_RIGHT],
     e.EV_ABS : [
-        (e.ABS_X, AbsInfo(value=0, min=0, max=2256, fuzz=0, flat=0, resolution=31)),
-        (e.ABS_Y, AbsInfo(0, 0, 1504, 0, 0, 31)),
+        (e.ABS_X, squareAbsInfo),
+        (e.ABS_Y, squareAbsInfo),
         (e.ABS_MT_SLOT, AbsInfo(value=0, min=0, max=10, fuzz=0, flat=0, resolution=0)),
-        (e.ABS_MT_POSITION_X, AbsInfo(value=0, min=0, max=2256, fuzz=0, flat=0, resolution=31)),
-        (e.ABS_MT_POSITION_Y, AbsInfo(value=0, min=0, max=1504, fuzz=0, flat=0, resolution=31)),
+        (e.ABS_MT_POSITION_X, squareAbsInfo),
+        (e.ABS_MT_POSITION_Y, squareAbsInfo),
         (e.ABS_MT_TRACKING_ID, AbsInfo(value=0, min=0, max=9999, fuzz=0, flat=0, resolution=0)) ]
 }
 ui = UInput(cap, name='send_touch_to_linux', version=0x3)
@@ -36,7 +40,8 @@ ui = UInput(cap, name='send_touch_to_linux', version=0x3)
 while (True):
     # Only tracks one input rn
     if (panel1.fresh == True):
-        (x1, y1) = panel1.coords()
+        # swap x and y
+        (y1, x1) = panel1.coords()
 
         # Close touch event
         if not x1:

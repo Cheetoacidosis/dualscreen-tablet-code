@@ -24,14 +24,20 @@ p = (480/2, YMAX/2)
 r = 40
 margin = 40
 
+TOUCH_RESOLUTION = (800, 800)
+SQUARE = 800
+
+squareAbsInfo = AbsInfo(value=0, min=0, max=SQUARE, fuzz=0, flat=0, resolution=31)
+
+# Set up the touch emulation device
 cap = {
     e.EV_KEY : [e.KEY_A, e.KEY_B, e.BTN_LEFT, e.BTN_MOUSE, e.BTN_MIDDLE, e.BTN_RIGHT],
     e.EV_ABS : [
-        (e.ABS_X, AbsInfo(value=0, min=0, max=XMAX, fuzz=0, flat=0, resolution=31)),
-        (e.ABS_Y, AbsInfo(0, 0, YMAX, 0, 0, 31)),
+        (e.ABS_X, squareAbsInfo),
+        (e.ABS_Y, squareAbsInfo),
         (e.ABS_MT_SLOT, AbsInfo(value=0, min=0, max=10, fuzz=0, flat=0, resolution=0)),
-        (e.ABS_MT_POSITION_X, AbsInfo(value=0, min=0, max=XMAX, fuzz=0, flat=0, resolution=31)),
-        (e.ABS_MT_POSITION_Y, AbsInfo(value=0, min=0, max=YMAX, fuzz=0, flat=0, resolution=31)),
+        (e.ABS_MT_POSITION_X, squareAbsInfo),
+        (e.ABS_MT_POSITION_Y, squareAbsInfo),
         (e.ABS_MT_TRACKING_ID, AbsInfo(value=0, min=0, max=9999, fuzz=0, flat=0, resolution=0)) ]
 }
 
