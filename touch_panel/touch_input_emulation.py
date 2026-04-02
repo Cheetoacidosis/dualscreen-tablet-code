@@ -17,17 +17,21 @@ import time
 import numpy as np
 
 # Radius and center point for drawing a circle with the emulated touch panel
-p = (1128, 752)
-r = 250
+YMAX = 800
+XMAX = YMAX
+p = (480/2, YMAX/2)
+# p = (0,0)
+r = 40
+margin = 40
 
 cap = {
     e.EV_KEY : [e.KEY_A, e.KEY_B, e.BTN_LEFT, e.BTN_MOUSE, e.BTN_MIDDLE, e.BTN_RIGHT],
     e.EV_ABS : [
-        (e.ABS_X, AbsInfo(value=0, min=0, max=2256, fuzz=0, flat=0, resolution=31)),
-        (e.ABS_Y, AbsInfo(0, 0, 1504, 0, 0, 31)),
+        (e.ABS_X, AbsInfo(value=0, min=0, max=XMAX, fuzz=0, flat=0, resolution=31)),
+        (e.ABS_Y, AbsInfo(0, 0, YMAX, 0, 0, 31)),
         (e.ABS_MT_SLOT, AbsInfo(value=0, min=0, max=10, fuzz=0, flat=0, resolution=0)),
-        (e.ABS_MT_POSITION_X, AbsInfo(value=0, min=0, max=2256, fuzz=0, flat=0, resolution=31)),
-        (e.ABS_MT_POSITION_Y, AbsInfo(value=0, min=0, max=1504, fuzz=0, flat=0, resolution=31)),
+        (e.ABS_MT_POSITION_X, AbsInfo(value=0, min=0, max=XMAX, fuzz=0, flat=0, resolution=31)),
+        (e.ABS_MT_POSITION_Y, AbsInfo(value=0, min=0, max=YMAX, fuzz=0, flat=0, resolution=31)),
         (e.ABS_MT_TRACKING_ID, AbsInfo(value=0, min=0, max=9999, fuzz=0, flat=0, resolution=0)) ]
 }
 
@@ -41,7 +45,6 @@ while(True):
     # Initialize new touch event
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
     ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, 45) # Can be anything, as long as each touch is unique
-    # ui.write(e.EV_KEY, e.BTN_LEFT, 1) # "Pen down"
     ui.syn()
 
     # Draw a circle
@@ -53,18 +56,72 @@ while(True):
         ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x)
         ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
         ui.syn()
+        time.sleep(0.001)
 
     time.sleep(0.01)
     # End touch event
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
     ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1)
-    # ui.write(e.EV_KEY, e.BTN_LEFT, 0) # "pen up"
     ui.syn()
+
+    time.sleep(1)
+
+
+    # Initialize second touch event
+    ui.write(e.EV_ABS, e.ABS_MT_SLOT, 1)
+    ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, 46) # Can be anything, as long as each touch is unique
+    ui.syn()
+
+    # Draw a circle
+    for i in range(314*2):
+        x = int(r*np.cos(i/100) + p[0])
+        y = int(r*np.sin(i/100) + p[1])
+
+        ui.write(e.EV_ABS, e.ABS_MT_SLOT, 1)
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x-margin)
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y-margin)
+        ui.syn()
+        time.sleep(0.001)
+
+    time.sleep(0.01)
+    # End touch event
+    ui.write(e.EV_ABS, e.ABS_MT_SLOT, 1)
+    ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1)
+    ui.syn()
+    
     time.sleep(1)
 
 
 
 
+
+
+
+
+    # Draw a square around the bounds
+    # ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, XMAX - margin)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, YMAX - margin)
+    # ui.syn()
+    # time.sleep(0.01)
+
+    # ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, margin)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, YMAX - margin)
+    # ui.syn()
+    # time.sleep(0.01)
+
+    # ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, margin)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, margin)
+    # ui.syn()
+    # time.sleep(0.01)
+
+    # ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, XMAX - margin)
+    # ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, margin)
+    # ui.syn()
+    # time.sleep(0.01)
 
 
 
