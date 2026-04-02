@@ -39,7 +39,7 @@ while (True):
         (x1, y1) = panel1.coords()
 
         # Close touch event
-        if (x1.empty() == True):
+        if not x1:
             ui.write(e.EV_ABS, e.ABS_MT_SLOT, 0)
             ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1) # Can be anything, as long as each touch is unique
             ui.syn()
