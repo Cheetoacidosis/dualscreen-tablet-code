@@ -36,6 +36,8 @@ def StartTouch(ui, MT_SLOT, x, y) -> int:
     # Flush the slot
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
     ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1) 
+    ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x) # fixes issue where previous touches connect to eachother
+    ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
     ui.syn()
 
     # Create the slot
