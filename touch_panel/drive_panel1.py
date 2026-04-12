@@ -9,8 +9,15 @@ from evdev import UInput, AbsInfo, ecodes as e
 import evdev
 import time
 
+# Constants
+i2c_address = 0x5d
+int_pin = 18
+rst_pin = 26
+
 TOUCH_RESOLUTION = (1024, 600)
 SQUARE = 1024
+
+# Global variables
 uuid = 1
 
 def ReleaseTouch(ui, MT_SLOT) -> None:
@@ -66,10 +73,10 @@ def UpdateTouch(ui, MT_SLOT, ID, x, y) -> None:
 
 
 # Connect to the first panel
-panel1 = GT911_Panel(i2c_address = 0x5d, int_pin = 18, rst_pin = 26)
+panel1 = GT911_Panel(i2c_address = i2c_address, int_pin = int_pin, rst_pin = rst_pin)
 
 while not panel1.connect():
-    print("Failed connection Panel 1")
+    print("Failed connection Panel 1. Trying again")
     time.sleep(0.3)
 
 time.sleep(1)
@@ -101,6 +108,8 @@ TouchDict = dict() #"PanelTouchID" : "evdev_MT_slot"
 
 # Send taps to Linux userspace
 while (True):
+    # print("Is this thing on?")
+    # time.sleep(0.1)
     if (panel1.fresh == True):
 
         # Nab our new data
