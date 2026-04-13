@@ -1,0 +1,127 @@
+{
+	"abstract" : true,
+	"artifacts" : 
+	[
+		{
+			"path" : "/app/lib/x86_64-linux-gnu/libQt6Pdf.so.6.10.2"
+		}
+	],
+	"backtrace" : 9,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"include",
+			"find_package",
+			"set_target_properties"
+		],
+		"files" : 
+		[
+			"/app/lib/x86_64-linux-gnu/cmake/Qt6Pdf/Qt6PdfTargets.cmake",
+			"/app/lib/x86_64-linux-gnu/cmake/Qt6Pdf/Qt6PdfConfig.cmake",
+			"build/Desktop-Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/Qt6/Qt6Config.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 4,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 252,
+				"parent" : 1
+			},
+			{
+				"file" : 3,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 251,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 252,
+				"parent" : 4
+			},
+			{
+				"file" : 1,
+				"parent" : 5
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 52,
+				"parent" : 6
+			},
+			{
+				"file" : 0,
+				"parent" : 7
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 60,
+				"parent" : 8
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 62,
+				"parent" : 8
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"id" : "Qt6::Pdf::@6890427a1f51a3e7e1df",
+	"imported" : true,
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 10,
+			"id" : "Qt6::Core::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "Qt6::Gui::@6890427a1f51a3e7e1df"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 10,
+			"id" : "Qt6::Core::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "Qt6::Gui::@6890427a1f51a3e7e1df"
+		}
+	],
+	"local" : true,
+	"name" : "Qt6::Pdf",
+	"nameOnDisk" : "libQt6Pdf.so.6.10.2",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sources" : [],
+	"type" : "SHARED_LIBRARY"
+}

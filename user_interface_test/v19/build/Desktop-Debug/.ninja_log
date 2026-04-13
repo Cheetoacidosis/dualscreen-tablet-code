@@ -1,0 +1,85 @@
+# ninja log v7
+5	538	1774736574650104782	v19_autogen/timestamp	6d4bd1c2b6f69f41
+5	538	1774736574650104782	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+5	538	1774736574650104782	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+5	538	1774736574650104782	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+548	578	1774736574708104538	v19_autogen/EWIEGA46WW/qrc_icons.cpp	7906df015c7d18b5
+548	578	1774736574708104538	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/EWIEGA46WW/qrc_icons.cpp	7906df015c7d18b5
+581	633	1774736574714104513	CMakeFiles/v19.dir/v19_autogen/EWIEGA46WW/qrc_icons.cpp.o	d5df8142090c527c
+579	4499	1774736574712104522	CMakeFiles/v19.dir/v19_autogen/mocs_compilation.cpp.o	dba3b78f1307d299
+579	4644	1774736574712884391	CMakeFiles/v19.dir/main.cpp.o	449e58842031ef0b
+580	6054	1774736574714019115	CMakeFiles/v19.dir/mydrawingwidget.cpp.o	5371609e659ae390
+580	8198	1774736574713104517	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+8199	8740	1774736582332929395	v19	80202b243353a07d
+4	32	1774736770281282232	v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	32	1774736770281282232	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+4	32	1774736770281282232	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	32	1774736770281282232	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+32	3325	1774736770309282117	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+3325	3649	1774736773602268570	v19	80202b243353a07d
+9	66	1774737449908618351	v19_autogen/timestamp	6d4bd1c2b6f69f41
+9	66	1774737449908618351	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+9	66	1774737449908618351	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+9	66	1774737449908618351	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+66	7717	1774737449966618111	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+7717	8252	1774737457616586539	v19	80202b243353a07d
+8	73	1774737941720563070	v19_autogen/timestamp	6d4bd1c2b6f69f41
+8	73	1774737941720563070	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+8	73	1774737941720563070	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+8	73	1774737941720563070	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+73	7198	1774737941785562796	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+7198	7550	1774737948910532827	v19	80202b243353a07d
+6	59	1774737983150448514	v19_autogen/timestamp	6d4bd1c2b6f69f41
+6	59	1774737983150448514	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+6	59	1774737983150448514	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+6	59	1774737983150448514	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+60	4113	1774737983203388622	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+4113	4446	1774737987256371575	v19	80202b243353a07d
+4	33	1774738032644180703	v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	33	1774738032644180703	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+4	33	1774738032644180703	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	33	1774738032644180703	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+33	3430	1774738032673180581	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+3430	3756	1774738036070166293	v19	80202b243353a07d
+4	33	1774738291173093292	v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	33	1774738291173093292	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+4	33	1774738291173093292	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	33	1774738291173093292	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+34	3338	1774738291203093166	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+3338	3655	1774738294507079269	v19	80202b243353a07d
+3	31	1774738513118059778	v19_autogen/timestamp	6d4bd1c2b6f69f41
+3	31	1774738513118059778	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+3	31	1774738513118059778	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+3	31	1774738513118059778	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+32	3326	1774738513147059642	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+3326	3641	1774738516441044222	v19	80202b243353a07d
+7	50	1774738811738661897	v19_autogen/timestamp	6d4bd1c2b6f69f41
+7	50	1774738811738661897	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+7	50	1774738811738661897	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+7	50	1774738811738661897	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+50	3393	1774738811781661695	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+3393	3720	1774738815124646046	v19	80202b243353a07d
+4	31	1774739047639721612	v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	31	1774739047639721612	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+4	31	1774739047639721612	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+4	31	1774739047639721612	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+31	3393	1774739047666721505	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+3393	3716	1774739051028708159	v19	80202b243353a07d
+9	78	1774739969294578896	v19_autogen/timestamp	6d4bd1c2b6f69f41
+9	78	1774739969294578896	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+9	78	1774739969294578896	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+9	78	1774739969294578896	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+78	7599	1774739969363578678	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+7599	8231	1774739976884554962	v19	80202b243353a07d
+9	61	1774740054731309553	v19_autogen/timestamp	6d4bd1c2b6f69f41
+9	61	1774740054731309553	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+9	61	1774740054731309553	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+9	61	1774740054731309553	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+62	7650	1774740054784309386	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+7650	8160	1774740062372285459	v19	80202b243353a07d
+10	88	1774748910849759475	v19_autogen/timestamp	6d4bd1c2b6f69f41
+10	88	1774748910849759475	v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+10	88	1774748910849759475	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/timestamp	6d4bd1c2b6f69f41
+10	88	1774748910849759475	/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/v19_autogen/mocs_compilation.cpp	6d4bd1c2b6f69f41
+89	7512	1774748910928759190	CMakeFiles/v19.dir/mainwindow.cpp.o	8b02de59df9906d1
+7512	8057	1774748918351732361	v19	80202b243353a07d

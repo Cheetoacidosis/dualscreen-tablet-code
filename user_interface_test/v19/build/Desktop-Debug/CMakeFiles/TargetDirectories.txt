@@ -1,0 +1,9 @@
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/v19.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/install.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/v19_autogen_timestamp_deps.dir
+/home/callie/School/5.Senior Design/dualscreen-tablet-code/user_interface_test/v19/build/Desktop-Debug/CMakeFiles/v19_autogen.dir
