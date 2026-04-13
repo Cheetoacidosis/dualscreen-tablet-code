@@ -45,7 +45,12 @@ MainWindow::MainWindow(QWidget *parent)
     new_file = false;
 
 
-
+    ui->testcheckBox->setStyleSheet(
+        "QCheckBox::indicator {"
+        "    width: 40px;"
+        "    height: 40px;"
+        "}"
+        );
 
 
     //assign the widget to be connected to the document
@@ -70,7 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(annotator);
 
     //set pen default
-    annotator->setPenThickness(HIGH);
+    annotator->setPenThickness(MEDIUM);
 
 
     //when save button is pressed,
