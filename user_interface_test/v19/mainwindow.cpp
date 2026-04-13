@@ -39,8 +39,10 @@ MainWindow::MainWindow(QWidget *parent)
     //set menu to main menu
     ui->stackedWidget->setCurrentIndex(0);
     //set default open file directory and folder
-    this->open_document_file = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/3640_Project_1.pdf";
-    this->pdf_folder_location = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/";
+    // this->open_document_file = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/3640_Project_1.pdf";
+    // this->pdf_folder_location = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/";
+    this->open_document_file = "/home/pi/pdf_files/demo.pdf";
+    this->pdf_folder_location = "home/pi/pdf_files/";
 
     new_file = false;
 
