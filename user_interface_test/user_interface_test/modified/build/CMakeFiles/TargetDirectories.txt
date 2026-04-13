@@ -1,0 +1,9 @@
+/home/pi/user_interface_test/modified/build/CMakeFiles/v19.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/edit_cache.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/rebuild_cache.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/list_install_components.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/install.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/install/local.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/install/strip.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/v19_autogen_timestamp_deps.dir
+/home/pi/user_interface_test/modified/build/CMakeFiles/v19_autogen.dir
