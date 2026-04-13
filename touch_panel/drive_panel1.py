@@ -16,9 +16,26 @@ rst_pin = 26
 
 TOUCH_RESOLUTION = (1024, 600)
 SQUARE = 1024
+Y_FUDGE = 175.64/163.2 #ratio of two dimensions
 
 # Global variables
 uuid = 1
+
+def MapTouchToDisplay(x, y) -> [int, int]:
+    """
+    Return: [x_prime, y_prime]
+    """
+    # Swap x & y, then invert y
+    t = y
+    y = x
+    x = t
+    y = SQUARE - y
+
+    # Get rid of dead space at bottom
+    y = y*Y_FUDGE
+
+    return [int(x), int(y)]
+
 
 def ReleaseTouch(ui, MT_SLOT) -> None:
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
@@ -31,11 +48,13 @@ def StartTouch(ui, MT_SLOT, x, y) -> int:
     global uuid
     ID = uuid
     uuid = uuid + 1
-    # Swap x & y, then invert y
-    t = y
-    y = x
-    x = t
-    y = SQUARE - y
+    # # Swap x & y, then invert y
+    # t = y
+    # y = x
+    # x = t
+    # y = SQUARE - y
+
+    [x, y] = MapTouchToDisplay(x, y)
 
     # Flush the slot
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
@@ -58,10 +77,11 @@ def StartTouch(ui, MT_SLOT, x, y) -> int:
 
 def UpdateTouch(ui, MT_SLOT, ID, x, y) -> None:
     # Swap x & y, then invert y
-    t = y
-    y = x
-    x = t
-    y = SQUARE - y
+    # t = y
+    # y = x
+    # x = t
+    # y = SQUARE - y
+    [x, y] = MapTouchToDisplay(x, y)
 
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
     ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, ID)
