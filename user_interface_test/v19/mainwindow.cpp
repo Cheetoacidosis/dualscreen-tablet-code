@@ -41,8 +41,10 @@ MainWindow::MainWindow(QWidget *parent)
     //set default open file directory and folder
     // this->open_document_file = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/3640_Project_1.pdf";
     // this->pdf_folder_location = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/";
-    this->open_document_file = "/home/pi/pdf_files/demo.pdf";
-    this->pdf_folder_location = "home/pi/pdf_files/";
+    this->open_document_file = "/home/callie/School/5.Senior Design/pdf_files/demo.pdf";
+    this->pdf_folder_location = "/home/callie/School/5.Senior Design/pdf_files";
+    // this->open_document_file = "/home/pi/pdf_files/demo.pdf";
+    // this->pdf_folder_location = "/home/pi/pdf_files/";
 
     new_file = false;
 
@@ -101,13 +103,19 @@ MainWindow::MainWindow(QWidget *parent)
         }
 
         }
+
+        // Close the File drawer
+        ui->menuFrameFile->hide();
     });
 
-
+    //when new file button is pressed
     connect(ui->New_File, &QPushButton::clicked, this, [this, annotator]() {
         new_file = true;
         annotator->clearAnnotations();
         ui->pdfViewWidget->setDocument(nullptr);
+
+        // Close the File drawer
+        ui->menuFrameFile->hide();
     });
 
 
@@ -158,23 +166,35 @@ MainWindow::MainWindow(QWidget *parent)
         //switch to the Save As Menu (stacked widget index 1)
         ui->stackedWidget->setCurrentIndex(1);
         ui->textEdit->setFocus();
+
+        // Close the File drawer
+        ui->menuFrameFile->hide();
     });
 
 
     connect(ui->penLow, &QPushButton::clicked, this, [this, annotator]() {
         annotator->setPenThickness(LOW);
+
+        // Close the Pen drawer
+        ui->menuFramePen->hide();
     });
 
     connect(ui->penMed, &QPushButton::clicked, this, [this, annotator]() {
         annotator->setPenThickness(MEDIUM);
+        // Close the Pen drawer
+        ui->menuFramePen->hide();
     });
 
     connect(ui->penHigh, &QPushButton::clicked, this, [this, annotator]() {
         annotator->setPenThickness(HIGH);
+        // Close the Pen drawer
+        ui->menuFramePen->hide();
     });
 
     connect(ui->penNone, &QPushButton::clicked, this, [this, annotator]() {
         annotator->setPenThickness(NONE);
+        // Close the Pen drawer
+        ui->menuFramePen->hide();
     });
 
 
@@ -203,6 +223,9 @@ MainWindow::MainWindow(QWidget *parent)
             ui->listWidget->addItem(filename);
         }
 
+        // Close the File drawer
+        ui->menuFrameFile->hide();
+
         //switch to open menu view
         ui->stackedWidget->setCurrentIndex(2);
 
@@ -212,8 +235,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->listWidget, &QListWidget::itemClicked, this, [this](QListWidgetItem *item) {
         //update the file currently open to the one selected
         QString filename = pdf_folder_location;
-        filename += item->text();
+        filename += "/" + item->text();
         open_document_file = filename;
+        // printf(filename);
 
         //update the pdf viewer with the right document
         my_document->load(open_document_file);
@@ -235,12 +259,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     //when Settings button is pressed,
     connect(ui->Settings, &QPushButton::clicked, this, [this]() {
+        // Close the File drawer
+        ui->menuFrameFile->hide();
         //go to settings page
         ui->stackedWidget->setCurrentIndex(3);
     });
 
     //when connect to BT button is pressed,
     connect(ui->Settings_To_BT, &QPushButton::clicked, this, [this]() {
+        // Close the File drawer
+        ui->menuFrameFile->hide();
         //go to BT page
         ui->stackedWidget->setCurrentIndex(4);
     });
@@ -249,6 +277,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->Settings_To_Calibrate, &QPushButton::clicked, this, [this]() {
         //go to calibrate page
         ui->stackedWidget->setCurrentIndex(5);
+    });
+    //when Calibrate Back button is pressed,
+    connect(ui->Calibration_Back, &QPushButton::clicked, this, [this]() {
+        //go to main page
+        ui->stackedWidget->setCurrentIndex(0);
     });
 
     //when Settings Back button is pressed,
@@ -263,6 +296,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //when BT Settings button is pressed,
     connect(ui->BT_RX, &QPushButton::clicked, this, [this]() {
+        // Close the File drawer
+        ui->menuFrameFile->hide();
         //go to settings page
         ui->stackedWidget->setCurrentIndex(4);
     });
@@ -446,7 +481,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-    //Hide & unhide the docks / submenus
+    //Hide & unhide the docks / submenus / drawers
     connect(ui->menuFile, &QPushButton::clicked, this, [this]() {
         if (ui->menuFrameFile->isVisible()){
             ui->menuFrameFile->hide();

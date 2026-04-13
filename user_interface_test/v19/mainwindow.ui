@@ -48,7 +48,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QPdfView" name="pdfViewWidget" native="true">
@@ -128,16 +128,16 @@
          </font>
         </property>
         <property name="text">
-         <string>Pen</string>
+         <string/>
         </property>
         <property name="icon">
          <iconset resource="icons.qrc">
-          <normaloff>:/icons/none.svg</normaloff>:/icons/none.svg</iconset>
+          <normaloff>:/icons/penTool.svg</normaloff>:/icons/penTool.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>0</width>
-          <height>0</height>
+          <width>40</width>
+          <height>40</height>
          </size>
         </property>
        </widget>
@@ -154,7 +154,13 @@
          <enum>QFrame::Shape::StyledPanel</enum>
         </property>
         <property name="frameShadow">
-         <enum>QFrame::Shadow::Raised</enum>
+         <enum>QFrame::Shadow::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
         </property>
         <widget class="QPushButton" name="penHigh">
          <property name="geometry">
@@ -287,9 +293,9 @@
         <property name="geometry">
          <rect>
           <x>430</x>
-          <y>60</y>
+          <y>50</y>
           <width>51</width>
-          <height>371</height>
+          <height>351</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -302,7 +308,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>320</y>
+           <y>300</y>
            <width>50</width>
            <height>50</height>
           </rect>
@@ -322,7 +328,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>210</y>
+           <y>200</y>
            <width>50</width>
            <height>50</height>
           </rect>
@@ -342,7 +348,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>260</y>
+           <y>250</y>
            <width>50</width>
            <height>50</height>
           </rect>
@@ -457,16 +463,16 @@
          </font>
         </property>
         <property name="text">
-         <string>File</string>
+         <string/>
         </property>
         <property name="icon">
          <iconset resource="icons.qrc">
-          <normaloff>:/icons/none.svg</normaloff>:/icons/none.svg</iconset>
+          <normaloff>:/icons/image.svg</normaloff>:/icons/image.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>0</width>
-          <height>0</height>
+          <width>40</width>
+          <height>40</height>
          </size>
         </property>
        </widget>
@@ -1184,6 +1190,19 @@ Pair to device with name
         </property>
         <property name="text">
          <string>Screen Calibration</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Calibration_Back">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>740</y>
+          <width>121</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
         </property>
        </widget>
       </widget>
