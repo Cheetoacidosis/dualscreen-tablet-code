@@ -1078,65 +1078,57 @@ Pair to device with name
        </widget>
       </widget>
       <widget class="QWidget" name="page_7_fulldraw">
-       <widget class="QFrame" name="frame">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
+       <widget class="QSlider" name="verticalSlider">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>480</width>
-          <height>800</height>
+          <x>10</x>
+          <y>30</y>
+          <width>16</width>
+          <height>751</height>
          </rect>
         </property>
-        <property name="frameShape">
-         <enum>QFrame::Shape::Box</enum>
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
         </property>
-        <property name="frameShadow">
-         <enum>QFrame::Shadow::Plain</enum>
+       </widget>
+       <widget class="QSlider" name="verticalSlider_2">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>250</y>
+          <width>16</width>
+          <height>160</height>
+         </rect>
         </property>
-        <property name="lineWidth">
-         <number>10</number>
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
         </property>
-        <property name="midLineWidth">
-         <number>0</number>
+       </widget>
+       <widget class="QSlider" name="horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>19</x>
+          <y>140</y>
+          <width>451</width>
+          <height>20</height>
+         </rect>
         </property>
-        <widget class="QLabel" name="label_6">
-         <property name="geometry">
-          <rect>
-           <x>100</x>
-           <y>0</y>
-           <width>211</width>
-           <height>81</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Drawing Pad</string>
-         </property>
-        </widget>
-        <widget class="QPdfView" name="pdfViewWidget_2" native="true">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>480</width>
-           <height>800</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>480</width>
-           <height>600</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>480</width>
-           <height>800</height>
-          </size>
-         </property>
-        </widget>
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>330</y>
+          <width>118</width>
+          <height>3</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
        </widget>
       </widget>
      </widget>
