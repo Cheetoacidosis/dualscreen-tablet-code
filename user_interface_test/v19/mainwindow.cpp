@@ -72,16 +72,12 @@ MainWindow::MainWindow(QWidget *parent)
     annotator->setPenThickness(MEDIUM);
 
 
+    //Hide submenus
+    // ui->testMenuFrame->hide();
+    ui->menuFrameFile->hide();
+    ui->menuFramePen->hide();
 
-    // //create full-page annotator widget for drawing
-    // mydrawingwidget *annotator_fullpage = new mydrawingwidget(ui->pdfViewWidget_fullpage);
-    // //create a layout so we can overlay the annotator over the viewer
-    // QVBoxLayout *layout_fullpage = new QVBoxLayout(ui->pdfViewWidget_fullpage);
-    // //no margins on the layout
-    // layout->setContentsMargins(0,0,0,0);
-    // layout->addWidget(annotator_fullpage);
-    // //set pen default
-    // annotator_fullpage->setPenThickness(MEDIUM);
+
 
 
     //when save button is pressed,
@@ -450,6 +446,21 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
+    //Hide & unhide the docks / submenus
+    connect(ui->menuFile, &QPushButton::clicked, this, [this]() {
+        if (ui->menuFrameFile->isVisible()){
+            ui->menuFrameFile->hide();
+        } else {
+            ui->menuFrameFile->show();
+        }
+    });
+    connect(ui->menuPen, &QPushButton::clicked, this, [this]() {
+        if (ui->menuFramePen->isVisible()){
+            ui->menuFramePen->hide();
+        } else {
+            ui->menuFramePen->show();
+        }
+    });
 
 
     //this is the code that pulls the UI data and sends it to the python
