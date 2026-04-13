@@ -33,7 +33,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QPushButton" name="penMed">
@@ -1075,6 +1075,68 @@ Pair to device with name
         <property name="text">
          <string>Screen Calibration</string>
         </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_7_fulldraw">
+       <widget class="QFrame" name="frame">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>480</width>
+          <height>800</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>10</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>0</y>
+           <width>211</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Drawing Pad</string>
+         </property>
+        </widget>
+        <widget class="QPdfView" name="pdfViewWidget_2" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>480</width>
+           <height>800</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>480</width>
+           <height>600</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>480</width>
+           <height>800</height>
+          </size>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>

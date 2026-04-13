@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     //turn off blinking cursor for file saving dialogue
     ui->textEdit->setCursorWidth(0);
     //set menu to main menu
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(6);
     //set default open file directory and folder
     this->open_document_file = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/3640_Project_1.pdf";
     this->pdf_folder_location = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/";
