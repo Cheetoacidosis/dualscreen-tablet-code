@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     //turn off blinking cursor for file saving dialogue
     ui->textEdit->setCursorWidth(0);
     //set menu to main menu
-    ui->stackedWidget->setCurrentIndex(6);
+    ui->stackedWidget->setCurrentIndex(0);
     //set default open file directory and folder
     this->open_document_file = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/3640_Project_1.pdf";
     this->pdf_folder_location = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/";
@@ -66,9 +66,20 @@ MainWindow::MainWindow(QWidget *parent)
     //no margins on the layout
     layout->setContentsMargins(0,0,0,0);
     layout->addWidget(annotator);
-
     //set pen default
     annotator->setPenThickness(MEDIUM);
+
+
+
+    // //create full-page annotator widget for drawing
+    // mydrawingwidget *annotator_fullpage = new mydrawingwidget(ui->pdfViewWidget_fullpage);
+    // //create a layout so we can overlay the annotator over the viewer
+    // QVBoxLayout *layout_fullpage = new QVBoxLayout(ui->pdfViewWidget_fullpage);
+    // //no margins on the layout
+    // layout->setContentsMargins(0,0,0,0);
+    // layout->addWidget(annotator_fullpage);
+    // //set pen default
+    // annotator_fullpage->setPenThickness(MEDIUM);
 
 
     //when save button is pressed,
