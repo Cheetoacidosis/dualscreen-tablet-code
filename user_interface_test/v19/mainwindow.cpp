@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
     // this->open_document_file = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/3640_Project_1.pdf";
     // this->pdf_folder_location = "/Users/ethan/Desktop/Undergrad/Spring 2026/Senior Design/QT/pdf_files/";
     this->open_document_file = "/home/callie/School/5.Senior Design/pdf_files/demo.pdf";
-    this->pdf_folder_location = "/home/callie/School/5.Senior Design/pdf_files";
+    this->pdf_folder_location = "/home/callie/School/5.Senior Design/pdf_files/";
     // this->open_document_file = "/home/pi/pdf_files/demo.pdf";
     // this->pdf_folder_location = "/home/pi/pdf_files/";
 
@@ -235,7 +235,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->listWidget, &QListWidget::itemClicked, this, [this](QListWidgetItem *item) {
         //update the file currently open to the one selected
         QString filename = pdf_folder_location;
-        filename += "/" + item->text();
+        filename += item->text();
         open_document_file = filename;
         // printf(filename);
 
