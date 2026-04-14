@@ -74,6 +74,11 @@ void mydrawingwidget::mousePressEvent(QMouseEvent *event){
         current_annotation.clear();
         current_annotation.append(event->position());
         event->accept();
+
+        //Move ever so slightly to account for little clicks
+        // current_annotation.append(event->position() + QPointF(10.0, 10.0));
+        // event->accept();
+        // update();
     }
 }
 
@@ -91,12 +96,19 @@ void mydrawingwidget::mouseReleaseEvent(QMouseEvent *event){
     //don't end annotation is pen mode is NONE
     if (active_pen_mode != NONE) {
         //when the mouse is released, store the current annotation
+
+        //if the annotation was only a single press, turn it into a dot
+        if (current_annotation.length() == 1){
+            current_annotation.append(event->position() + QPointF(1.0, 0.0));
+        }
+
         //to the list of annotations
         annotation_info new_annotation;
         new_annotation.annotation = current_annotation;
         new_annotation.annotation_thickness = active_pen_mode;
 
         annotations_list[pdf_page].append(new_annotation);
+        update();
     }
 }
 
