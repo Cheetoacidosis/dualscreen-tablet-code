@@ -5,6 +5,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <iostream>
+#include <qpdfpagenavigator.h>
 
 
 //macros for pen thicknesses
@@ -74,11 +75,6 @@ void mydrawingwidget::mousePressEvent(QMouseEvent *event){
         current_annotation.clear();
         current_annotation.append(event->position());
         event->accept();
-
-        //Move ever so slightly to account for little clicks
-        // current_annotation.append(event->position() + QPointF(10.0, 10.0));
-        // event->accept();
-        // update();
     }
 }
 
@@ -99,7 +95,7 @@ void mydrawingwidget::mouseReleaseEvent(QMouseEvent *event){
 
         //if the annotation was only a single press, turn it into a dot
         if (current_annotation.length() == 1){
-            current_annotation.append(event->position() + QPointF(1.0, 0.0));
+            current_annotation.append(event->position() + QPointF(0.10, 0.0));
         }
 
         //to the list of annotations
@@ -180,7 +176,15 @@ void mydrawingwidget::saveToPdf(const QString &filePath, QPdfView *pdfView) {
 
     QSizeF pdf_size = my_document->pagePointSize(0);
 
-    QSize viewsize=pdfView->size();
+    QSize viewsize = pdfView->size();
+
+    //Traverse every page of the document before rendering. This prevents my_document->render() from crashing the program
+    QPdfPageNavigator *navigator = pdfView->pageNavigator();
+    int currentpage = navigator->currentPage();
+    for (int i = currentpage; i < my_document->pageCount(); i++){
+        navigator->jump(i, {});
+    }
+    navigator->jump(currentpage, {}); //Return to where we started
 
     //calculate how much the pdf is scaled in the pdf viewer
     double view_scale = std::min(viewsize.width() / pdf_size.width(), viewsize.height() / pdf_size.height());
@@ -191,7 +195,7 @@ void mydrawingwidget::saveToPdf(const QString &filePath, QPdfView *pdfView) {
     double scaling_factor = desired_dpi/default_dpi;
 
     //width and height of scaled annotations
-    QSize render_size(pdf_size.width() * scaling_factor, pdf_size.height()*scaling_factor);
+    QSize render_size((int)(pdf_size.width() * scaling_factor), (int)(pdf_size.height()*scaling_factor));
 
     //create the pdf document
     QPdfWriter writer(filePath);
@@ -205,11 +209,10 @@ void mydrawingwidget::saveToPdf(const QString &filePath, QPdfView *pdfView) {
 
     //when saving the file, loop through each page in the document
     for (int i=0; i<total_pages; i++) {
-
         //create an image that is a pixel-to-pixel copy of the pdf document
         QImage page_image;
         QPainter pdf_painter;
-        if (i<my_document->pageCount()) {
+        if (i < my_document->pageCount()) {
             page_image = my_document->render(i, render_size);
             pdf_painter.begin(&page_image);
         } else {
@@ -252,6 +255,8 @@ void mydrawingwidget::saveToPdf(const QString &filePath, QPdfView *pdfView) {
     }
 
     finalPainter.end();
+
+    return;
 }
 
 

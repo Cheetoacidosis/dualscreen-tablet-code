@@ -3,6 +3,7 @@
 #include "mydrawingwidget.h"
 
 #include <QPdfPageSelector>
+#include <QPdfDocumentRenderOptions>
 #include <iostream>
 #include <QDir>
 #include <QTimer>
@@ -71,11 +72,10 @@ MainWindow::MainWindow(QWidget *parent)
     layout->setContentsMargins(0,0,0,0);
     layout->addWidget(annotator);
     //set pen default
-    annotator->setPenThickness(MEDIUM);
+    annotator->setPenThickness(LOW);
 
 
     //Hide submenus
-    // ui->testMenuFrame->hide();
     ui->menuFrameFile->hide();
     ui->menuFramePen->hide();
 
@@ -84,23 +84,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     //when save button is pressed,
     connect(ui->Save, &QPushButton::clicked, this, [this, annotator]() {
-
         if (new_file) {
+            //Go to Save-As Screen
             ui->stackedWidget->setCurrentIndex(1);
         }
 
         else {
-
-        //if you are beyond the document, reset the document for the saving file function
-        if (ui->pdfViewWidget->document()==nullptr) {
-            ui->pdfViewWidget->setDocument(my_document);
-            annotator->saveToPdf(open_document_file, ui->pdfViewWidget);
-            ui->pdfViewWidget->setDocument(nullptr);
-        } else {
-
-            //save file
-            annotator->saveToPdf(open_document_file, ui->pdfViewWidget);
-        }
+            //if you are beyond the document, reset the document for the saving file function
+            if (ui->pdfViewWidget->document()==nullptr) {
+                ui->pdfViewWidget->setDocument(my_document);
+                annotator->saveToPdf(open_document_file, ui->pdfViewWidget);
+                ui->pdfViewWidget->setDocument(nullptr);
+            } else {
+                //save file
+                annotator->saveToPdf(open_document_file, ui->pdfViewWidget);
+            }
 
         }
 
