@@ -466,8 +466,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="icons.qrc">
-          <normaloff>:/icons/image.svg</normaloff>:/icons/image.svg</iconset>
+         <iconset resource="icons2.qrc">
+          <normaloff>:/new/prefix1/icons/image.svg</normaloff>:/new/prefix1/icons/image.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -1873,6 +1873,7 @@ Pair to device with name
  </customwidgets>
  <resources>
   <include location="icons.qrc"/>
+  <include location="icons2.qrc"/>
  </resources>
  <connections/>
 </ui>

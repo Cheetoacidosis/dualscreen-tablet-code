@@ -17,7 +17,5 @@
         <file>icons/save.svg</file>
         <file>icons/settings.svg</file>
         <file>icons/new_file.svg</file>
-        <file>icons/image.svg</file>
-        <file>icons/penTool.svg</file>
     </qresource>
 </RCC>
