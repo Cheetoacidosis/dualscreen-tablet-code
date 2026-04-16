@@ -19,7 +19,7 @@
 #define HIGH 3
 
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent, bool secondTablet)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , my_document(new QPdfDocument(this))
@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 {
-
 
     //initialize UI
     ui->setupUi(this);
@@ -495,11 +494,17 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
+    // Determine where to put the display data file
+    // if (secondTablet == true){
+    //     QFile memory_location("/dev/shm/display_data2.bin");
+    // } else {
+    //     QFile memory_location("/dev/shm/display_data.bin");
+    // }
 
     //this is the code that pulls the UI data and sends it to the python
     //script at a set frequency
     QTimer *rateGroup = new QTimer(this);
-    connect (rateGroup, &QTimer::timeout, this, [this]() {
+    connect (rateGroup, &QTimer::timeout, this, [this, secondTablet]() {
         //create the right size display
         QImage display(480, 800, QImage::Format_RGB32);
         //file it with a white background
@@ -514,7 +519,13 @@ MainWindow::MainWindow(QWidget *parent)
         //convert it to B/W
         display = display.convertToFormat(QImage::Format_Mono, Qt::MonoOnly | Qt::ThresholdDither | Qt::AvoidDither);
 
-        QFile memory_location("/dev/shm/display_data.bin");
+        // Determine where to put the display data file
+        QString mem_loc_string = "/dev/shm/display_data.bin";
+        if (secondTablet == true){
+            mem_loc_string = "/dev/shm/display_data2.bin";
+            int test = 8;
+        }
+        QFile memory_location(mem_loc_string);
         //open the location in memory to write the data
         if (memory_location.open(QIODevice::WriteOnly)) {
             //write the data
