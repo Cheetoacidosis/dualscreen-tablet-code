@@ -130,7 +130,17 @@ TouchDict = dict() #"PanelTouchID" : "evdev_MT_slot"
 
 # Send taps to Linux userspace
 while (True):
-    # print("Is this thing on?")
+    # print("Connected? " + str(panel1.connected))
+
+    if (panel1.connected == False):
+        while not panel1.connect():
+            print("Panel 2 Disconnected. Attempting reconnection")
+            time.sleep(0.3)
+        # After reconnection succeeds:
+        time.sleep(1)
+        panel1.start_reading()
+
+
     # time.sleep(0.1)
     if (panel1.fresh == True):
 

@@ -9,8 +9,8 @@ class GT911_Panel:
     COMMAND_REG = [0x80, 0x40]
     COMMAND_CHECK_REG = [0x80, 0x46]
     i2c = smbus3.SMBus(1)
-    pull_up = None
-    active_state = True
+    pull_up = True
+    active_state = None
     bounce_time = 4 * 10**(-9)
     hold_time = 4 * 10**(-6)
     hold_repeat = False
@@ -97,67 +97,11 @@ class GT911_Panel:
             raise ConnectionRefusedError("The device attached to I2C address " + str(hex(self.ADDR)) + " was not a GT911 touch panel, or could not be read")
         
         self.connected = True
+        self.is_reading = False
         return True
         
 
-    def __OLD_read_coord_registers(self):
-        if self.connected == False:
-            self.is_reading = False
-            return False
-        
-        # Read the status register, and break the byte into its component bits
-        try:
-            # print("A reading is taking place")
-            self.i2c.i2c_rdwr(self.STATUS_1B_REG, self.BUFF_1_BYTE)
-        except OSError:
-            print("Disconnected (readcoordreg)")
-            self.connected = False
-            self.is_reading = False
-            return False
-        else:
 
-            status_response = int.from_bytes(self.BUFF_1_BYTE.__bytes__())
-            ready_to_read = (status_response >> 7) & 0b1
-            num_touch = status_response & 0b00000111
-            large_touch = (status_response >> 6) & 0b1
-            have_key = (status_response >> 4) & 0b1
-
-           
-
-            # Read the coordinate registers 
-            if ((ready_to_read == 1) & (num_touch != 0)):
-            # if ((ready_to_read == 1)):
-                # print("Number of touches detected: " + str(num_touch) + (", Large area detected" if large_touch == 1 else ""))
-
-                self.BUFF_TOUCH = smbus3.i2c_msg.read(self.ADDR, 8*num_touch)
-                self.i2c.i2c_rdwr(self.TOUCH_XY_REG, self.BUFF_TOUCH)
-
-                self.track_ids = []
-                self.x_coords = []
-                self.y_coords = []
-                self.touch_sizes = []
-
-                # Store the coordinates
-                for i in range(0, num_touch):
-                    self.track_ids.append(self.BUFF_TOUCH.__bytes__()[0 + 8*i])
-                    self.x_coords.append(int.from_bytes([self.BUFF_TOUCH.__bytes__()[2 + 8*i], self.BUFF_TOUCH.__bytes__()[1 + 8*i]]))
-                    self.y_coords.append(int.from_bytes([self.BUFF_TOUCH.__bytes__()[4 + 8*i], self.BUFF_TOUCH.__bytes__()[3 + 8*i]]))
-                    self.touch_sizes.append(int.from_bytes([self.BUFF_TOUCH.__bytes__()[6 + 8*i], self.BUFF_TOUCH.__bytes__()[5 + 8*i]]))
-
-                    # print("Touch " + str(self.track_ids[i]) + ": (" + str(self.x_coords[i]) + ", " + str(self.y_coords[i]) + ") Size: " + str(self.touch_sizes[i]))
-
-            else:
-                # print ("no coords")
-                self.track_ids = []
-                self.x_coords = []
-                self.y_coords = []
-                self.touch_sizes = []
-
-            # CRITICAL! Clear the status register as an ACK
-            self.i2c.i2c_rdwr(self.CLEAR_STATUS_REG)
-            self.fresh = True
-            self.is_reading = False
-            return True
 
 
 
@@ -167,25 +111,11 @@ class GT911_Panel:
 
         # Don't try to read if connection was lost
         if self.connected == False:
+            print("Returned False from readcoordreg (self.connected == false)")
             self.is_reading = False
             return False
         
-        # Read the status register, and break the byte into its component bits
-        # try:
-        #     # print("A reading is taking place")
-        #     self.i2c.i2c_rdwr(self.STATUS_1B_REG, self.BUFF_1_BYTE)
-        # except OSError:
-        #     print("Disconnected (readcoordreg)")
-        #     self.connected = False
-        #     self.is_reading = False
-        #     return False
-        # else:
 
-        #     status_response = int.from_bytes(self.BUFF_1_BYTE.__bytes__())
-        #     ready_to_read = (status_response >> 7) & 0b1
-        #     num_touch = status_response & 0b00000111
-        #     large_touch = (status_response >> 6) & 0b1
-        #     have_key = (status_response >> 4) & 0b1
         ready_to_read = 0
 
         # Read the status register & loop until it's valid
@@ -194,8 +124,8 @@ class GT911_Panel:
             try:
                 self.i2c.i2c_rdwr(self.STATUS_1B_REG, self.BUFF_1_BYTE)
             except OSError:
-                self.connect()
-                return
+                print("Panel disconnected")
+                return False
 
             status_response = int.from_bytes(self.BUFF_1_BYTE.__bytes__())
             ready_to_read = (status_response >> 7) & 0b1
@@ -207,15 +137,18 @@ class GT911_Panel:
             if (ready_to_read == 0):
                 time.sleep(0.001)
 
-
         # Read the coordinate registers 
         if (num_touch > 0):
         # if ((ready_to_read == 1)):
             # print("Number of touches detected: " + str(num_touch) + (", Large area detected" if large_touch == 1 else ""))
 
             self.BUFF_TOUCH = smbus3.i2c_msg.read(self.ADDR, 8*num_touch)
-
-            self.i2c.i2c_rdwr(self.TOUCH_XY_REG, self.BUFF_TOUCH)
+            
+            try:
+                self.i2c.i2c_rdwr(self.TOUCH_XY_REG, self.BUFF_TOUCH)
+            except OSError:
+                print("Panel disconnected")
+                return False
 
             self.track_ids = []
             self.x_coords = []
@@ -238,7 +171,12 @@ class GT911_Panel:
             self.touch_sizes = [None]
 
         # CRITICAL! Clear the status register as an ACK
-        self.i2c.i2c_rdwr(self.CLEAR_STATUS_REG)
+        try:
+            self.i2c.i2c_rdwr(self.CLEAR_STATUS_REG)
+        except OSError:
+            print("Panel disconnected")
+            return False
+            
         self.fresh = True
         self.is_reading = False
         return True
@@ -249,7 +187,10 @@ class GT911_Panel:
         Essentially sets up an interrupt on INT. In practice it is still polling, 
         but to this level it looks like an interrupt
         """
+        self.int_dev.close()
+        self.int_dev = Button(pin=self.int_pin, pull_up = self.pull_up, active_state = self.active_state, hold_time = self.hold_time, hold_repeat = self.hold_repeat, bounce_time = self.bounce_time)
         self.int_dev.when_pressed = self.INTpin_ISR
+        # self.__read_coord_registers()
         # self.int_dev.when_pressed = self.woag
 
         # count = 0
@@ -270,18 +211,16 @@ class GT911_Panel:
     #             self.__read_coord_registers()
 
     def INTpin_ISR(self):
-        # Check if we are in the middle of a read
-        # if we are, discard the INT
-        # if we are not, trigger a read
-        if (self.is_reading == False):
+        # print("ISR Triggered")
+        # Skip if a read is already ongoing
+        # if (self.is_reading == False):
             self.is_reading = True
             self.__read_coord_registers()
+        # else:
+            # print("Skipped reading (ISR)")
 
 
-            # for i in range(len(self.track_ids)):
-            #     print("Touch " + str(self.track_ids[i]) + ": (" + str(self.x_coords[i]) + ", " + str(self.y_coords[i]) + ") Size: " + str(self.touch_sizes[i]))
 
-    
 
     def coords(self):
         if (self.connected == False):
