@@ -6,8 +6,7 @@ import os
 import time
 from gt911_panel import GT911_Panel
 from evdev import UInput, AbsInfo, ecodes as e
-import evdev
-import time
+
 
 # Constants
 i2c_address = 0x14
@@ -43,7 +42,7 @@ def ReleaseTouch(ui, MT_SLOT) -> None:
     ui.syn()
 
 
-def StartTouch(ui, MT_SLOT, x, y) -> int:
+def StartTouch(ui, MT_SLOT, x_in, y_in) -> int:
     # Be lazy with it
     global uuid
     ID = uuid
@@ -54,7 +53,16 @@ def StartTouch(ui, MT_SLOT, x, y) -> int:
     # x = t
     # y = SQUARE - y
 
-    [x, y] = MapTouchToDisplay(x, y)
+    if ((x_in < 32) and (y_in < 32)):
+        full_refresh_memory = open("/dev/shm/full_refresh2.bin", "wb")
+        full_refresh_memory.write(b'\x01')
+        full_refresh_memory.flush()
+        time.sleep(1)
+        full_refresh_memory.seek(0)
+        full_refresh_memory.write(b'\x00')
+        full_refresh_memory.flush()
+
+    [x, y] = MapTouchToDisplay(x_in, y_in)
 
     # Flush the slot
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
