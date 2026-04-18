@@ -1,0 +1,12 @@
+[Unit]
+Description=Run touchpanel2 driver
+After=multi-user.target touchpanel1.service
+
+[Service]
+WorkingDirectory=/home/pi/touch_panel
+Type=simple
+Restart=always
+ExecStart=/home/pi/touch_panel/venv/bin/python /home/pi/touch_panel/drive_panel2.py
+
+[Install]
+WantedBy=multi-user.target
