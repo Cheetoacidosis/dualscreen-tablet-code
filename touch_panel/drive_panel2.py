@@ -1,7 +1,5 @@
 """
 send touch inputs from the GT911 to the linux userspace
-DO NOT MODIFY THIS FILE! 
-Modify drive_panel1.py, and then copy changes over to this file
 """
 
 import os
@@ -12,15 +10,32 @@ import evdev
 import time
 
 # Constants
-# i2c_address = 0x14
-# int_pin = 18
-# rst_pin = 26
+i2c_address = 0x14
+int_pin = 19
+rst_pin = 20
 
 TOUCH_RESOLUTION = (1024, 600)
 SQUARE = 1024
+Y_FUDGE = 175.64/163.2 #ratio of two dimensions
 
 # Global variables
 uuid = 1
+
+def MapTouchToDisplay(x, y) -> [int, int]:
+    """
+    Return: [x_prime, y_prime]
+    """
+    # Swap x & y, then invert y
+    t = y
+    y = x
+    x = t
+    y = SQUARE - y
+
+    # Get rid of dead space at bottom
+    y = y*Y_FUDGE
+
+    return [int(x), int(y)]
+
 
 def ReleaseTouch(ui, MT_SLOT) -> None:
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
@@ -33,11 +48,13 @@ def StartTouch(ui, MT_SLOT, x, y) -> int:
     global uuid
     ID = uuid
     uuid = uuid + 1
-    # Swap x & y, then invert y
-    t = y
-    y = x
-    x = t
-    y = SQUARE - y
+    # # Swap x & y, then invert y
+    # t = y
+    # y = x
+    # x = t
+    # y = SQUARE - y
+
+    [x, y] = MapTouchToDisplay(x, y)
 
     # Flush the slot
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
@@ -60,10 +77,11 @@ def StartTouch(ui, MT_SLOT, x, y) -> int:
 
 def UpdateTouch(ui, MT_SLOT, ID, x, y) -> None:
     # Swap x & y, then invert y
-    t = y
-    y = x
-    x = t
-    y = SQUARE - y
+    # t = y
+    # y = x
+    # x = t
+    # y = SQUARE - y
+    [x, y] = MapTouchToDisplay(x, y)
 
     ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
     ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, ID)
@@ -84,6 +102,8 @@ while not panel1.connect():
 time.sleep(1)
 panel1.start_reading()
 
+# Start after the first panel
+time.sleep(4)
 
 squareAbsInfo = AbsInfo(value=0, min=0, max=SQUARE, fuzz=0, flat=0, resolution=31)
 
@@ -110,6 +130,8 @@ TouchDict = dict() #"PanelTouchID" : "evdev_MT_slot"
 
 # Send taps to Linux userspace
 while (True):
+    # print("Is this thing on?")
+    # time.sleep(0.1)
     if (panel1.fresh == True):
 
         # Nab our new data
