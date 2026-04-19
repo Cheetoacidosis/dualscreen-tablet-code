@@ -111,7 +111,7 @@ time.sleep(1)
 panel1.start_reading()
 
 # Start after the first panel
-time.sleep(4)
+time.sleep(1)
 
 squareAbsInfo = AbsInfo(value=0, min=0, max=SQUARE, fuzz=0, flat=0, resolution=31)
 
@@ -140,13 +140,14 @@ TouchDict = dict() #"PanelTouchID" : "evdev_MT_slot"
 while (True):
     # print("Connected? " + str(panel1.connected))
 
-    if (panel1.connected == False):
-        while not panel1.connect():
-            print("Panel 2 Disconnected. Attempting reconnection")
-            time.sleep(0.3)
-        # After reconnection succeeds:
-        time.sleep(1)
-        panel1.start_reading()
+    # if (panel1.connected == False):
+    #     while not panel1.connected:
+    #         # print("Panel 2 Disconnected. Awaiting reocnnection")
+    #         time.sleep(0.3)
+    #     # After reconnection succeeds:
+    #     print("Panel 2 Successfull connection")
+    #     time.sleep(1)
+    #     panel1.start_reading()
 
 
     # time.sleep(0.1)

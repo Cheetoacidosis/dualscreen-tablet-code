@@ -94,8 +94,9 @@ class GT911_Panel:
             return False
 
         if ("911" not in BUFF_4_BYTE.__str__()):
-            raise ConnectionRefusedError("The device attached to I2C address " + str(hex(self.ADDR)) + " was not a GT911 touch panel, or could not be read")
-        
+            # raise ConnectionRefusedError("The device attached to I2C address " + str(hex(self.ADDR)) + " was not a GT911 touch panel, or could not be read")
+            return False
+
         self.connected = True
         self.is_reading = False
         return True
@@ -124,7 +125,8 @@ class GT911_Panel:
             try:
                 self.i2c.i2c_rdwr(self.STATUS_1B_REG, self.BUFF_1_BYTE)
             except OSError:
-                print("Panel disconnected")
+                print("Panel disconnected StatusReg")
+                self.connected = False
                 return False
 
             status_response = int.from_bytes(self.BUFF_1_BYTE.__bytes__())
@@ -147,7 +149,8 @@ class GT911_Panel:
             try:
                 self.i2c.i2c_rdwr(self.TOUCH_XY_REG, self.BUFF_TOUCH)
             except OSError:
-                print("Panel disconnected")
+                print("Panel disconnected TouchReg")
+                self.connected = False
                 return False
 
             self.track_ids = []
@@ -174,9 +177,10 @@ class GT911_Panel:
         try:
             self.i2c.i2c_rdwr(self.CLEAR_STATUS_REG)
         except OSError:
-            print("Panel disconnected")
+            print("Panel disconnected ClearStatusReg")
+            self.connected = False
             return False
-            
+
         self.fresh = True
         self.is_reading = False
         return True
@@ -187,8 +191,8 @@ class GT911_Panel:
         Essentially sets up an interrupt on INT. In practice it is still polling, 
         but to this level it looks like an interrupt
         """
-        self.int_dev.close()
-        self.int_dev = Button(pin=self.int_pin, pull_up = self.pull_up, active_state = self.active_state, hold_time = self.hold_time, hold_repeat = self.hold_repeat, bounce_time = self.bounce_time)
+        # self.int_dev.close()
+        # self.int_dev = Button(pin=self.int_pin, pull_up = self.pull_up, active_state = self.active_state, hold_time = self.hold_time, hold_repeat = self.hold_repeat, bounce_time = self.bounce_time)
         self.int_dev.when_pressed = self.INTpin_ISR
         # self.__read_coord_registers()
         # self.int_dev.when_pressed = self.woag
@@ -211,13 +215,12 @@ class GT911_Panel:
     #             self.__read_coord_registers()
 
     def INTpin_ISR(self):
-        # print("ISR Triggered")
-        # Skip if a read is already ongoing
-        # if (self.is_reading == False):
+        if (self.connected == True):
             self.is_reading = True
             self.__read_coord_registers()
-        # else:
-            # print("Skipped reading (ISR)")
+        else:
+            self.reconnect()
+            
 
 
 
@@ -235,7 +238,18 @@ class GT911_Panel:
         return retval
 
 
-    def disconnected(self):
+    def reconnect(self):
         """
-        If the panel disconnects, sever EVERYTHING!!!
+        Attempt to reconnect
         """
+        is_connected = False
+
+        while not is_connected:
+            time.sleep(0.1)
+            try:
+                self.i2c.i2c_rdwr(self.STATUS_1B_REG, self.BUFF_1_BYTE)
+            except OSError:
+                print("Panel still disconnected. Trying to reconnect in 0.1s")
+            else:
+                self.connected = True
+                is_connected = True
