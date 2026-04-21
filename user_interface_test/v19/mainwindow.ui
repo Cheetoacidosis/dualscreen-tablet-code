@@ -132,7 +132,7 @@
         </property>
         <property name="icon">
          <iconset resource="icons.qrc">
-          <normaloff>:/icons/asterisk.svg</normaloff>:/icons/asterisk.svg</iconset>
+          <normaloff>:/icons/penTool.svg</normaloff>:/icons/penTool.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
