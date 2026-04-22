@@ -15,6 +15,7 @@ rst_pin = 26
 TOUCH_RESOLUTION = (1024, 600)
 SQUARE = 1024
 Y_FUDGE = 175.64/163.2 #ratio of two dimensions
+REFRESH_DIST = 40
 
 # Global variables
 uuid = 1
@@ -23,6 +24,7 @@ def MapTouchToDisplay(x, y) -> [int, int]:
     """
     Return: [x_prime, y_prime]
     """
+
     # Swap x & y, then invert y
     t = y
     y = x
@@ -31,6 +33,10 @@ def MapTouchToDisplay(x, y) -> [int, int]:
 
     # Get rid of dead space at bottom
     y = y*Y_FUDGE
+
+    # Shift touch down a little
+    y = y + 20
+    x = x + 20
 
     return [int(x), int(y)]
 
@@ -48,7 +54,7 @@ def StartTouch(ui, MT_SLOT, x_in, y_in) -> int:
     uuid = uuid + 1
 
     # Check if we should refresh the screen
-    if ((x_in < 32) and (y_in < 32)):
+    if ((x_in < REFRESH_DIST) and (y_in < REFRESH_DIST)):
         full_refresh_memory = open("/dev/shm/full_refresh.bin", "wb")
         full_refresh_memory.write(b'\x01')
         full_refresh_memory.flush()
@@ -56,25 +62,25 @@ def StartTouch(ui, MT_SLOT, x_in, y_in) -> int:
         full_refresh_memory.seek(0)
         full_refresh_memory.write(b'\x00')
         full_refresh_memory.flush()
+    else: 
+        [x, y] = MapTouchToDisplay(x_in, y_in)
 
-    [x, y] = MapTouchToDisplay(x_in, y_in)
+        # Flush the slot
+        ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
+        ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1) 
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x) # fixes issue where previous touches connect to eachother
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
+        ui.syn()
 
-    # Flush the slot
-    ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
-    ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1) 
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x) # fixes issue where previous touches connect to eachother
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
-    ui.syn()
+        # Create the slot
+        ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
+        ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, ID) # Can be anything, as long as each touch is unique
+        ui.syn()
 
-    # Create the slot
-    ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
-    ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, ID) # Can be anything, as long as each touch is unique
-    ui.syn()
-
-    # Write the position data
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x)
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
-    ui.syn()
+        # Write the position data
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x)
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
+        ui.syn()
     return ID
 
 

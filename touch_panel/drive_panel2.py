@@ -33,6 +33,10 @@ def MapTouchToDisplay(x, y) -> [int, int]:
     # Get rid of dead space at bottom
     y = y*Y_FUDGE
 
+    # Shift touch down a little
+    y = y + 20
+    x = x + 20
+
     return [int(x), int(y)]
 
 
@@ -61,25 +65,26 @@ def StartTouch(ui, MT_SLOT, x_in, y_in) -> int:
         full_refresh_memory.seek(0)
         full_refresh_memory.write(b'\x00')
         full_refresh_memory.flush()
+    else:
 
-    [x, y] = MapTouchToDisplay(x_in, y_in)
+        [x, y] = MapTouchToDisplay(x_in, y_in)
 
-    # Flush the slot
-    ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
-    ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1) 
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x) # fixes issue where previous touches connect to eachother
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
-    ui.syn()
+        # Flush the slot
+        ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
+        ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, -1) 
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x) # fixes issue where previous touches connect to eachother
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
+        ui.syn()
 
-    # Create the slot
-    ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
-    ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, ID) # Can be anything, as long as each touch is unique
-    ui.syn()
+        # Create the slot
+        ui.write(e.EV_ABS, e.ABS_MT_SLOT, MT_SLOT)
+        ui.write(e.EV_ABS, e.ABS_MT_TRACKING_ID, ID) # Can be anything, as long as each touch is unique
+        ui.syn()
 
-    # Write the position data
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x)
-    ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
-    ui.syn()
+        # Write the position data
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_X, x)
+        ui.write(e.EV_ABS, e.ABS_MT_POSITION_Y, y)
+        ui.syn()
     return ID
 
 
