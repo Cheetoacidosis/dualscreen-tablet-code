@@ -1,4 +1,5 @@
 #include "mydrawingwidget.h"
+#include "mainwindow.h"
 
 #include <QPdfDocument>
 #include <QPdfWriter>
