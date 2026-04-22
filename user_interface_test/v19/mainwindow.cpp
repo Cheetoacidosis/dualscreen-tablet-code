@@ -535,7 +535,7 @@ MainWindow::MainWindow(QWidget *parent, bool secondTablet)
 
     });
 
-    rateGroup->start(500);
+    rateGroup->start(100);
 
 
 
