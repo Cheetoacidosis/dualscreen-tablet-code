@@ -290,7 +290,7 @@ MainWindow::MainWindow(QWidget *parent, bool secondTablet)
 
 
 
-
+    /* Bluetooth settings have been removed
     //when BT Settings button is pressed,
     connect(ui->BT_RX, &QPushButton::clicked, this, [this]() {
         // Close the File drawer
@@ -304,7 +304,7 @@ MainWindow::MainWindow(QWidget *parent, bool secondTablet)
         //go to main page
         ui->stackedWidget->setCurrentIndex(0);
     });
-
+    */
 
 
 

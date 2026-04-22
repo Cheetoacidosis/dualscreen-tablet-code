@@ -48,7 +48,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QPdfView" name="pdfViewWidget" native="true">
@@ -295,7 +295,7 @@
           <x>430</x>
           <y>50</y>
           <width>51</width>
-          <height>351</height>
+          <height>251</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -308,26 +308,6 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>300</y>
-           <width>50</width>
-           <height>50</height>
-          </rect>
-         </property>
-         <property name="icon">
-          <iconset resource="icons.qrc">
-           <normaloff>:/icons/settings.svg</normaloff>:/icons/settings.svg</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>40</width>
-           <height>40</height>
-          </size>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="BT_TX">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
            <y>200</y>
            <width>50</width>
            <height>50</height>
@@ -335,27 +315,7 @@
          </property>
          <property name="icon">
           <iconset resource="icons.qrc">
-           <normaloff>:/icons/BT_TX.svg</normaloff>:/icons/BT_TX.svg</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>40</width>
-           <height>40</height>
-          </size>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="BT_RX">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>250</y>
-           <width>50</width>
-           <height>50</height>
-          </rect>
-         </property>
-         <property name="icon">
-          <iconset resource="icons.qrc">
-           <normaloff>:/icons/BT_RX.svg</normaloff>:/icons/BT_RX.svg</iconset>
+           <normaloff>:/icons/settings.svg</normaloff>:/icons/settings.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1096,7 +1056,7 @@
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>190</x>
+          <x>140</x>
           <y>10</y>
           <width>181</width>
           <height>81</height>
@@ -1104,6 +1064,9 @@
         </property>
         <property name="text">
          <string>Settings</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="Settings_Back">
@@ -1120,6 +1083,9 @@
         </property>
        </widget>
        <widget class="QPushButton" name="Settings_To_Calibrate">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -1129,10 +1095,13 @@
          </rect>
         </property>
         <property name="text">
-         <string>Calibrate Screen</string>
+         <string>Example</string>
         </property>
        </widget>
        <widget class="QPushButton" name="Settings_To_BT">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -1142,7 +1111,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>Connect Bluetooth</string>
+         <string>Example</string>
         </property>
        </widget>
       </widget>

@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
     //Set default font size for all text
     QFont font = QApplication::font();
-    font.setPointSize(28);
+    font.setPointSize(26);
     a.setFont(font);
     MainWindow w(nullptr, secondTablet);
     w.show();
