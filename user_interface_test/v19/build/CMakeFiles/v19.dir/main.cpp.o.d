@@ -416,5 +416,8 @@ CMakeFiles/v19.dir/main.cpp.o: /home/pi/user_interface_test/v19/main.cpp \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qinputmethod.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qlocale.h \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtCore/QCommandLineParser \
+ /usr/include/aarch64-linux-gnu/qt6/QtCore/qcommandlineparser.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtCore/qcommandlineoption.h \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/QFont \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qfont.h

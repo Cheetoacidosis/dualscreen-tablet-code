@@ -587,79 +587,22 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
   /usr/lib/linux/uapi/arm64/asm/errno.h \
   /usr/lib/linux/uapi/arm64/asm/posix_types.h \
   /usr/lib/linux/uapi/arm64/asm/types.h \
-  /usr/share/cmake-3.31/Modules/CMakeCXXCompiler.cmake.in \
-  /usr/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp \
   /usr/share/cmake-3.31/Modules/CMakeCXXInformation.cmake \
   /usr/share/cmake-3.31/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
   /usr/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeCompilerIdDetection.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeDetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeDetermineCompilerSupport.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeFindBinUtils.cmake \
   /usr/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake \
   /usr/share/cmake-3.31/Modules/CMakeGenericSystem.cmake \
   /usr/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake \
   /usr/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeParseImplicitIncludeInfo.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeParseImplicitLinkInfo.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeParseLibraryArchitecture.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeSystem.cmake.in \
   /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake \
   /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake \
-  /usr/share/cmake-3.31/Modules/CMakeUnixFindMake.cmake \
   /usr/share/cmake-3.31/Modules/CheckCXXCompilerFlag.cmake \
   /usr/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake \
   /usr/share/cmake-3.31/Modules/CheckIncludeFileCXX.cmake \
   /usr/share/cmake-3.31/Modules/CheckLibraryExists.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Borland-DetermineCompiler.cmake \
   /usr/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Cray-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/GHS-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
   /usr/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/GNU-FindBinUtils.cmake \
   /usr/share/cmake-3.31/Modules/Compiler/GNU.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/IAR-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Intel-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/PGI-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/SCO-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/TI-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-  /usr/share/cmake-3.31/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
   /usr/share/cmake-3.31/Modules/FeatureSummary.cmake \
   /usr/share/cmake-3.31/Modules/FindOpenGL.cmake \
   /usr/share/cmake-3.31/Modules/FindPackageHandleStandardArgs.cmake \
@@ -670,18 +613,15 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
   /usr/share/cmake-3.31/Modules/GNUInstallDirs.cmake \
   /usr/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake \
   /usr/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-  /usr/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake \
   /usr/share/cmake-3.31/Modules/Internal/CheckCompilerFlag.cmake \
   /usr/share/cmake-3.31/Modules/Internal/CheckFlagCommonConfig.cmake \
   /usr/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake \
-  /usr/share/cmake-3.31/Modules/Internal/FeatureTesting.cmake \
   /usr/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake \
   /usr/share/cmake-3.31/Modules/Linker/GNU.cmake \
   /usr/share/cmake-3.31/Modules/MacroAddFileDependencies.cmake \
   /usr/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake \
   /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU-CXX.cmake \
   /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU.cmake \
-  /usr/share/cmake-3.31/Modules/Platform/Linux-Determine-CXX.cmake \
   /usr/share/cmake-3.31/Modules/Platform/Linux-GNU-CXX.cmake \
   /usr/share/cmake-3.31/Modules/Platform/Linux-GNU.cmake \
   /usr/share/cmake-3.31/Modules/Platform/Linux-Initialize.cmake \
@@ -695,21 +635,15 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
 
 /usr/share/cmake-3.31/Modules/Platform/Linux-GNU.cmake:
 
-/usr/share/cmake-3.31/Modules/Platform/Linux-Determine-CXX.cmake:
-
 /usr/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake:
 
 /usr/share/cmake-3.31/Modules/MacroAddFileDependencies.cmake:
 
 /usr/share/cmake-3.31/Modules/Linker/GNU.cmake:
 
-/usr/share/cmake-3.31/Modules/Internal/FeatureTesting.cmake:
-
 /usr/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:
 
 /usr/share/cmake-3.31/Modules/Internal/CheckCompilerFlag.cmake:
-
-/usr/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:
 
 /usr/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake:
 
@@ -723,57 +657,11 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
 
 /usr/share/cmake-3.31/Modules/FindOpenGL.cmake:
 
-/usr/share/cmake-3.31/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/TIClang-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/SCO-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/OrangeC-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/NVIDIA-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/NVHPC-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/MSVC-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/PathScale-DetermineCompiler.cmake:
-
 /usr/share/cmake-3.31/Modules/Compiler/GNU.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/GNU-FindBinUtils.cmake:
 
 /usr/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake:
 
-/usr/share/cmake-3.31/Modules/Compiler/Fujitsu-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/Embarcadero-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/Cray-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompilerInternal.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompiler.cmake:
-
 /usr/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/Borland-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/AppleClang-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/ARMClang-DetermineCompiler.cmake:
 
 /usr/share/cmake-3.31/Modules/CheckLibraryExists.cmake:
 
@@ -781,19 +669,9 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
 
 /usr/share/cmake-3.31/Modules/CheckCXXCompilerFlag.cmake:
 
-/usr/share/cmake-3.31/Modules/CMakeUnixFindMake.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:
-
 /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake:
 
 /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeParseLibraryArchitecture.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeParseImplicitLinkInfo.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeParseImplicitIncludeInfo.cmake:
 
 /usr/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake:
 
@@ -803,27 +681,9 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
 
 /usr/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:
 
-/usr/share/cmake-3.31/Modules/CMakeFindBinUtils.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeDetermineCompilerSupport.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeDetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/GHS-DetermineCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeCompilerIdDetection.cmake:
-
 /usr/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake:
 
 /usr/share/cmake-3.31/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
-
-/usr/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp:
-
-/usr/share/cmake-3.31/Modules/CMakeCXXCompiler.cmake.in:
 
 /usr/lib/linux/uapi/arm64/asm/posix_types.h:
 
@@ -995,8 +855,6 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
 
 /usr/include/c++/14/type_traits:
 
-/usr/share/cmake-3.31/Modules/Compiler/IAR-DetermineCompiler.cmake:
-
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qsharedpointer_impl.h:
 
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qshareddata_impl.h:
@@ -1032,8 +890,6 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
 /usr/lib/aarch64-linux-gnu/cmake/Qt6/QtPublicSbomHelpers.cmake:
 
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qnamespace.h:
-
-/usr/share/cmake-3.31/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake:
 
 /usr/include/c++/14/ext/concurrence.h:
 
@@ -1125,8 +981,6 @@ v19_autogen/timestamp: /home/pi/user_interface_test/v19/CMakeLists.txt \
 
 /usr/include/aarch64-linux-gnu/bits/time64.h:
 
-/usr/share/cmake-3.31/Modules/Compiler/TI-DetermineCompiler.cmake:
-
 /usr/lib/aarch64-linux-gnu/cmake/Qt6Core/Qt6CoreMacros.cmake:
 
 /usr/include/aarch64-linux-gnu/qt6/QtGui/qpaintdevice.h:
@@ -1211,8 +1065,6 @@ v19_autogen/moc_predefs.h:
 
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qatomic_cxx11.h:
 
-/usr/share/cmake-3.31/Modules/Compiler/PGI-DetermineCompiler.cmake:
-
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qcompare.h:
 
 /usr/include/c++/14/bits/range_access.h:
@@ -1222,8 +1074,6 @@ v19_autogen/moc_predefs.h:
 /usr/include/aarch64-linux-gnu/qt6/QtGui/qbitmap.h:
 
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qdatastream.h:
-
-/usr/share/cmake-3.31/Modules/CMakeSystem.cmake.in:
 
 /usr/include/c++/14/bits/requires_hosted.h:
 
@@ -1268,8 +1118,6 @@ v19_autogen/moc_predefs.h:
 /usr/include/c++/14/bits/stl_pair.h:
 
 /usr/include/aarch64-linux-gnu/bits/errno.h:
-
-/usr/share/cmake-3.31/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake:
 
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qiterable.h:
 
@@ -1370,8 +1218,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 /usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h:
 
 /usr/include/aarch64-linux-gnu/bits/stdint-intn.h:
-
-/usr/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:
 
 /usr/include/c++/14/bits/cpp_type_traits.h:
 
@@ -1491,11 +1337,7 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 
 /usr/include/aarch64-linux-gnu/qt6/QtPdfWidgets/qpdfview.h:
 
-/usr/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:
-
 /usr/lib/aarch64-linux-gnu/cmake/Qt6/QtPublicSbomPurlHelpers.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake:
 
 /usr/include/aarch64-linux-gnu/bits/waitflags.h:
 
@@ -1541,8 +1383,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 
 /usr/include/c++/14/ext/string_conversions.h:
 
-/usr/share/cmake-3.31/Modules/Compiler/XL-CXX-DetermineCompiler.cmake:
-
 /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h:
 
 /usr/lib/gcc/aarch64-linux-gnu/14/include/stdbool.h:
@@ -1567,8 +1407,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 
 /usr/include/alloca.h:
 
-/usr/share/cmake-3.31/Modules/Compiler/Watcom-DetermineCompiler.cmake:
-
 /usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/asm-generic/types.h:
@@ -1592,8 +1430,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 /usr/include/c++/14/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/14/algorithm:
-
-/usr/share/cmake-3.31/Modules/Compiler/ARMCC-DetermineCompiler.cmake:
 
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qscopedpointer.h:
 
@@ -1636,8 +1472,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 /usr/lib/aarch64-linux-gnu/cmake/Qt6/QtPublicSbomOpsHelpers.cmake:
 
 /usr/include/c++/14/bits/exception_ptr.h:
-
-/usr/share/cmake-3.31/Modules/Compiler/CrayClang-DetermineCompiler.cmake:
 
 /usr/include/aarch64-linux-gnu/bits/types/error_t.h:
 
@@ -1711,8 +1545,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 
 /usr/include/c++/14/bits/postypes.h:
 
-/usr/share/cmake-3.31/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake:
-
 /usr/include/c++/14/initializer_list:
 
 /usr/include/c++/14/bits/predefined_ops.h:
@@ -1749,8 +1581,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 
 /usr/include/c++/14/bits/stl_algo.h:
 
-/usr/share/cmake-3.31/Modules/Compiler/Tasking-DetermineCompiler.cmake:
-
 /usr/include/c++/14/cmath:
 
 /usr/include/c++/14/bits/stl_algobase.h:
@@ -1761,15 +1591,11 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 
 /usr/include/c++/14/bits/stl_numeric.h:
 
-/usr/share/cmake-3.31/Modules/Compiler/Intel-DetermineCompiler.cmake:
-
 /usr/include/aarch64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/aarch64-linux-gnu/qt6/QtCore/qcomparehelpers.h:
 
 /usr/include/c++/14/bits/stl_raw_storage_iter.h:
-
-/usr/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake:
 
 /usr/include/c++/14/bits/stl_relops.h:
 
@@ -1822,8 +1648,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 /usr/include/c++/14/cstdlib:
 
 /usr/include/c++/14/cstring:
-
-/usr/share/cmake-3.31/Modules/Compiler/HP-CXX-DetermineCompiler.cmake:
 
 /usr/lib/aarch64-linux-gnu/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake:
 
@@ -1888,8 +1712,6 @@ CMakeFiles/3.31.6/CMakeCXXCompiler.cmake:
 /usr/include/c++/14/vector:
 
 /usr/include/endian.h:
-
-/usr/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake:
 
 /usr/lib/aarch64-linux-gnu/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake:
 
@@ -2030,8 +1852,6 @@ CMakeFiles/3.31.6/CMakeSystem.cmake:
 /usr/lib/aarch64-linux-gnu/cmake/Qt6Gui/Qt6GuiConfig.cmake:
 
 /usr/lib/aarch64-linux-gnu/cmake/Qt6Gui/Qt6GuiTargets.cmake:
-
-/usr/share/cmake-3.31/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake:
 
 /usr/include/c++/14/backward/auto_ptr.h:
 

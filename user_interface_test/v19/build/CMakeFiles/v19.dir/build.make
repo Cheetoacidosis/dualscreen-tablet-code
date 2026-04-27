@@ -89,9 +89,11 @@ v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/bru
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/brush3.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/BT_TX.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/brush2.svg
+v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/image.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/arrow_left.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/new_file.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/asterisk.svg
+v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/penTool.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/arrow_right.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/BT_RX.svg
 v19_autogen/EWIEGA46WW/qrc_icons.cpp: /home/pi/user_interface_test/v19/icons/save.svg

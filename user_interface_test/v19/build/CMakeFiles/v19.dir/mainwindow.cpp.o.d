@@ -423,6 +423,8 @@ CMakeFiles/v19.dir/mainwindow.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qinputmethod.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qlocale.h \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QFrame \
+ /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qframe.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qlayout.h \
@@ -455,6 +457,8 @@ CMakeFiles/v19.dir/mainwindow.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QPushButton \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QSlider \
+ /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qslider.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QStackedWidget \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qstackedwidget.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QTextEdit \
@@ -473,6 +477,8 @@ CMakeFiles/v19.dir/mainwindow.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qlist.h \
  /usr/include/aarch64-linux-gnu/qt6/QtPdfWidgets/QPdfPageSelector \
  /usr/include/aarch64-linux-gnu/qt6/QtPdfWidgets/qpdfpageselector.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtPdf/QPdfDocumentRenderOptions \
+ /usr/include/aarch64-linux-gnu/qt6/QtPdf/qpdfdocumentrenderoptions.h \
  /usr/include/c++/14/iostream /usr/include/c++/14/ostream \
  /usr/include/c++/14/ios /usr/include/c++/14/bits/basic_ios.h \
  /usr/include/c++/14/bits/locale_facets.h /usr/include/c++/14/cwctype \

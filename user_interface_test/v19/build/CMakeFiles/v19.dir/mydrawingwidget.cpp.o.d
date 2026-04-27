@@ -405,6 +405,13 @@ CMakeFiles/v19.dir/mydrawingwidget.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qframe.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /home/pi/user_interface_test/v19/mainwindow.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QMainWindow \
+ /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtPdf/QPdfPageNavigator \
+ /usr/include/aarch64-linux-gnu/qt6/QtPdf/qpdfpagenavigator.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtPdf/qpdflink.h \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/QPdfWriter \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qpdfwriter.h \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qpagedpaintdevice.h \
@@ -456,4 +463,5 @@ CMakeFiles/v19.dir/mydrawingwidget.cpp.o: \
  /usr/include/c++/14/bits/locale_facets.tcc \
  /usr/include/c++/14/bits/basic_ios.tcc \
  /usr/include/c++/14/bits/ostream.tcc /usr/include/c++/14/istream \
- /usr/include/c++/14/bits/istream.tcc
+ /usr/include/c++/14/bits/istream.tcc \
+ /usr/include/aarch64-linux-gnu/qt6/QtPdf/qpdfpagenavigator.h
